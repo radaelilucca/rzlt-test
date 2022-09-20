@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import { darken } from 'polished';
 
+import { breakpoints } from '~/styles';
+
 export const Container = styled.div`
   height: 100%;
   width: 100%;
@@ -17,11 +19,20 @@ export const SearchForm = styled.form`
   border-radius: ${({ theme }) => theme.rounded.xl};
 
   max-width: 45rem;
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    background: transparent;
+
+    padding: 4rem 2rem;
+
+    height: 100%;
+  }
 `;
 
 export const Heading = styled.header`
   display: flex;
   flex-direction: column;
+
   gap: 0.5rem;
 
   h2 {
@@ -30,10 +41,20 @@ export const Heading = styled.header`
 
     text-align: center;
   }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    gap: 3.25rem;
+
+    h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      max-width: 80%;
+    }
+  }
 `;
 
 export const InputGroup = styled.div`
-  margin-top: 48px;
+  margin-top: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -63,6 +84,16 @@ export const InputGroup = styled.div`
 
     background-color: ${({ theme }) => theme.colors.cardBackground};
   }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    margin-top: 6.25rem;
+    font-size: 1rem;
+
+    input {
+      font-size: 1rem;
+      min-height: 3.125rem;
+    }
+  }
 `;
 export const SubmitButton = styled.button`
   background-color: ${({ theme }) => theme.colors.accent};
@@ -75,7 +106,8 @@ export const SubmitButton = styled.button`
 
   display: grid;
   place-items: center;
-  padding: 20px;
+
+  padding: 1rem;
 
   color: inherit;
 
@@ -92,5 +124,12 @@ export const SubmitButton = styled.button`
   &:disabled {
     background-color: ${({ theme }) => darken(0.3, theme.colors.accent)};
     color: ${({ theme }) => darken(0.3, theme.colors.lightText)};
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    font-size: 1.25rem;
+
+    padding: 0;
+    min-height: 3.125rem;
   }
 `;
