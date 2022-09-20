@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 import { breakpoints } from '~/styles';
+import { shakeAnimation } from '~/styles/animations';
 
 export const Container = styled.div`
   height: 100%;
@@ -53,7 +54,13 @@ export const Heading = styled.header`
   }
 `;
 
-export const InputGroup = styled.div`
+interface InputGroupProps {
+  hasError?: boolean;
+}
+
+export const InputGroup = styled.div<InputGroupProps>`
+  position: relative;
+
   margin-top: 3rem;
 
   display: flex;
@@ -73,16 +80,32 @@ export const InputGroup = styled.div`
   input {
     font-size: 1.5rem;
     font-weight: ${({ theme }) => theme.fontWeight.light};
-    color: inherit;
 
     padding: 0 1rem;
 
-    border: 2px solid ${({ theme }) => theme.colors.accent};
+    border: 2px solid
+      ${({ theme, hasError }) => (hasError ? theme.colors.errorRed : theme.colors.accent)};
+
+    color: ${({ theme, hasError }) => (hasError ? theme.colors.errorRed : theme.colors.lightText)};
+
     border-radius: ${({ theme }) => theme.rounded.lg};
 
     min-height: 5rem;
 
     background-color: ${({ theme }) => theme.colors.cardBackground};
+
+    ${({ hasError }) => hasError && shakeAnimation};
+  }
+
+  span {
+    position: absolute;
+    bottom: -1.8rem;
+
+    right: 0;
+
+    font-size: 1.15rem;
+
+    color: ${({ theme }) => theme.colors.errorRed};
   }
 
   @media (max-width: ${breakpoints.mobile}px) {
@@ -93,9 +116,18 @@ export const InputGroup = styled.div`
       font-size: 1rem;
       min-height: 3.125rem;
     }
+
+    span {
+      bottom: -1.4rem;
+      font-size: 0.9rem;
+    }
   }
 `;
 export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: ${({ theme }) => theme.colors.accent};
 
   cursor: pointer;
@@ -104,14 +136,11 @@ export const SubmitButton = styled.button`
   font-size: 2rem;
   font-weight: ${({ theme }) => theme.fontWeight.light};
 
-  display: grid;
-  place-items: center;
-
   padding: 1rem;
 
   color: inherit;
 
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 
   width: 100%;
 

@@ -27,6 +27,8 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
 
   const navigate = useNavigate();
 
+  const clearError = () => setError(null);
+
   const handleUpdateSearchHistory = useCallback(() => {
     if (!user) return;
 
@@ -81,6 +83,8 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
       setRepositories(parsedRepositories);
       setLastSearch(username);
 
+      clearError();
+
       if (navigateToProfile) navigate(`/users/${username}`);
     } catch (error) {
       setError(error as Error);
@@ -88,8 +92,6 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
 
     setLoading(false);
   };
-
-  const clearError = () => setError(null);
 
   useEffect(() => {
     if (user) {

@@ -6,6 +6,7 @@ const mainTheme = {
     lightText: '#fff',
     cardBackground: 'rgba(0,0,0,0.5)',
     cardDarkerBackground: 'rgba(0,0,0,0.8)',
+    errorRed: '#FF6969',
   },
   fontFamily: {
     poppins: 'Poppins, sans-serif',
