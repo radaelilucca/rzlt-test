@@ -6,14 +6,18 @@ import { AppRoutes } from '~/Routes';
 import { PageWrapper } from '~/components';
 import { GlobalStyles, mainTheme } from '~/styles';
 
+import { UserContextProvider } from './context';
+
 function App() {
   return (
     <ThemeProvider theme={mainTheme}>
       <GlobalStyles />
       <BrowserRouter>
-        <PageWrapper>
-          <AppRoutes />
-        </PageWrapper>
+        <UserContextProvider>
+          <PageWrapper>
+            <AppRoutes />
+          </PageWrapper>
+        </UserContextProvider>
       </BrowserRouter>
     </ThemeProvider>
   );
