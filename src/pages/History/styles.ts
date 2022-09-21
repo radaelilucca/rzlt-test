@@ -21,7 +21,7 @@ export const Container = styled.div`
 export const HistoryList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 
   height: 100%;
 
@@ -42,9 +42,11 @@ export const HistoryList = styled.ul`
 export const HistoryItem = styled(Link)`
   all: unset;
 
+  cursor: pointer;
+
   position: relative;
 
-  min-height: 140px;
+  min-height: 8rem;
 
   background-color: ${({ theme }) => theme.colors.cardBackground};
 
@@ -52,18 +54,17 @@ export const HistoryItem = styled(Link)`
   border-radius: ${({ theme }) => theme.rounded.lg};
 
   display: flex;
-  overflow: hidden;
   gap: 1rem;
 
-  img {
-    height: 140px;
-    width: 140px;
-    object-fit: cover;
-  }
-
-  cursor: pointer;
+  overflow: hidden;
 
   transition: background-color 200ms ease;
+
+  img {
+    height: 8rem;
+    width: 8rem;
+    object-fit: cover;
+  }
 
   &:hover,
   &:focus {
@@ -112,11 +113,11 @@ export const HistoryItem = styled(Link)`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    height: 120px;
-    min-height: 120px;
+    height: 7.5rem;
+    min-height: 7.5rem;
 
     img {
-      height: 120px;
+      height: 7.5rem;
     }
 
     .arrow-svg {
@@ -126,11 +127,11 @@ export const HistoryItem = styled(Link)`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    height: 100px;
-    min-height: 100px;
+    height: 6.25rem;
+    min-height: 6.25rem;
 
     img {
-      height: 100px;
+      height: 6.25rem;
     }
 
     .arrow-svg {
@@ -157,13 +158,8 @@ export const HistoryItemData = styled.div`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    .username,
-    .location {
+    .username {
       display: none;
-    }
-
-    .search-date {
-      margin: 0;
     }
   }
 `;
@@ -173,14 +169,22 @@ export const HistoryItemHeading = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
-
   strong {
-    font-size: 2rem;
-    font-weight: ${({ theme }) => theme.fontWeight.regular};
+    font-size: 1.8rem;
+    font-weight: ${({ theme }) => theme.fontWeight.light};
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
+    strong {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
     flex-direction: column;
     align-items: flex-start;
 
