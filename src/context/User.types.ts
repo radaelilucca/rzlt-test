@@ -40,4 +40,5 @@ export type UserContextValueType = {
   lastSearch: string;
   searchHistory: UserType[];
   error: Error | null;
+  clearSearchHistory: () => void;
 };

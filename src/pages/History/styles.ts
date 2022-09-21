@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { darken } from 'polished';
+
 import { breakpoints } from '~/styles';
 
 export const Container = styled.div`
@@ -15,6 +17,48 @@ export const Container = styled.div`
   padding-bottom: 2rem;
 
   overflow: hidden;
+`;
+
+export const ClearButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+
+  margin-top: 1rem;
+
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.lightText};
+
+  border-radius: ${({ theme }) => theme.rounded.lg};
+  border: none;
+
+  background-color: ${({ theme }) => theme.colors.accent};
+  transition: background-color 200ms ease;
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    path {
+      transition: fill 200ms ease;
+
+      fill: ${({ theme }) => theme.colors.lightText};
+    }
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => darken(0.1, theme.colors.accent)};
+
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.errorRed};
+      }
+    }
+  }
 `;
 
 export const HistoryList = styled.ul`

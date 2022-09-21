@@ -29,7 +29,12 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
 
   const clearError = () => setError(null);
 
-  const handleUpdateSearchHistory = useCallback(() => {
+  const clearSearchHistory = () => {
+    setSearchHistory([]);
+    localStorage.setItem(LOCAL_STORAGE_HISTORY_KEY, '');
+  };
+
+  const updateSearchHistory = useCallback(() => {
     if (!user) return;
 
     setSearchHistory((prevHistory) => {
@@ -104,9 +109,9 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
 
   useEffect(() => {
     if (user) {
-      handleUpdateSearchHistory();
+      updateSearchHistory();
     }
-  }, [user, handleUpdateSearchHistory]);
+  }, [user, updateSearchHistory]);
 
   const value: UserContextValueType = {
     user,
@@ -117,6 +122,7 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
     error,
     clearError,
     searchHistory,
+    clearSearchHistory,
   };
 
   return <userContext.Provider value={value}>{children}</userContext.Provider>;

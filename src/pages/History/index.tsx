@@ -1,14 +1,21 @@
 import { useContext } from 'react';
 
-import { GoForwardIcon } from '~/assets/svg';
+import { GoForwardIcon, TrashcanIcon } from '~/assets/svg';
 
 import { NoDataPlaceholder, PageHeader } from '~/components';
 import { userContext } from '~/context';
 
-import { Container, HistoryItem, HistoryItemData, HistoryItemHeading, HistoryList } from './styles';
+import {
+  ClearButton,
+  Container,
+  HistoryItem,
+  HistoryItemData,
+  HistoryItemHeading,
+  HistoryList,
+} from './styles';
 
 const SearchHistoryPage = () => {
-  const { searchHistory } = useContext(userContext);
+  const { searchHistory, clearSearchHistory } = useContext(userContext);
 
   return (
     <Container>
@@ -39,6 +46,10 @@ const SearchHistoryPage = () => {
           </HistoryItem>
         ))}
       </HistoryList>
+
+      <ClearButton onClick={clearSearchHistory}>
+        clear history <TrashcanIcon />
+      </ClearButton>
     </Container>
   );
 };

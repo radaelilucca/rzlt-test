@@ -7,6 +7,7 @@ import { ReactComponent as GoBackIcon } from './navigate-back.svg';
 import { ReactComponent as GoForwardIcon } from './navigate-forward.svg';
 import { ReactComponent as StarIcon } from './star.svg';
 import { ReactComponent as LoadingIcon } from './tail-spin.svg';
+import { ReactComponent as TrashcanIcon } from './trashcan.svg';
 import { ReactComponent as WatchersIcon } from './watchers.svg';
 
 export {
@@ -20,4 +21,5 @@ export {
   WatchersIcon,
   StarIcon,
   HomeIcon,
+  TrashcanIcon,
 };
