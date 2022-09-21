@@ -24,11 +24,10 @@ const UserDetailsPage = () => {
   const location = useLocation();
 
   useMountEffect(() => {
-    if (user?.username) return;
-
     const paths = location.pathname.split('/');
     const username = paths.pop() as string;
-    fetchUser({ username, navigateToProfile: false });
+
+    if (user?.username !== username) fetchUser({ username, navigateToProfile: false });
   });
 
   if (error) return <NoDataPlaceholder message='User not found' />;
