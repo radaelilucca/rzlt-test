@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { darken } from 'polished';
+
 import { breakpoints } from '~/styles';
 
 export const Container = styled.div`
@@ -34,7 +36,7 @@ export const LoadingIndicator = styled.div`
 `;
 
 export const UserContainer = styled.div`
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
 
   display: flex;
   padding: 1.5rem;
@@ -51,7 +53,7 @@ export const UserContainer = styled.div`
     height: 8.5rem;
     width: 8.5rem;
 
-    border: 2px solid ${({ theme }) => theme.colors.accent};
+    box-shadow: 0.15rem 0.15rem 0.15rem ${({ theme }) => darken(0.05, theme.colors.accent)};
 
     border-radius: ${({ theme }) => theme.rounded.xl};
   }
@@ -60,7 +62,7 @@ export const UserContainer = styled.div`
     background-color: transparent;
     padding: 0;
 
-    gap: 1rem;
+    gap: 1.5rem;
 
     margin: 2rem 0;
 
@@ -115,7 +117,7 @@ export const UserHeadingContainer = styled.div`
 
   @media (max-width: ${breakpoints.tablet}px) {
     strong {
-      font-size: 2rem;
+      font-size: 1.8rem;
       line-height: 2rem;
     }
   }

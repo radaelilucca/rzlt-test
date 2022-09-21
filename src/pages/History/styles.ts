@@ -11,7 +11,6 @@ export const Container = styled.div`
 
   height: 100%;
   width: 100%;
-  gap: 2.75rem;
 
   padding-bottom: 2rem;
 
