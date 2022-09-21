@@ -8,7 +8,6 @@ export const Container = styled.div`
 
   height: 100%;
   width: 100%;
-  gap: 2.75rem;
 `;
 
 export const LoadingIndicator = styled.div`
@@ -35,20 +34,22 @@ export const LoadingIndicator = styled.div`
 `;
 
 export const UserContainer = styled.div`
-  margin-top: 2rem;
+  margin: 1.5rem 0;
 
   display: flex;
   padding: 1.5rem;
   gap: 1.5rem;
 
-  max-height: calc(160px + (1.5rem * 2));
+  max-height: calc(8.5rem + (1.5rem * 2));
+
+  width: calc(100% - 2rem);
 
   border-radius: ${({ theme }) => theme.rounded.xl};
   background-color: ${({ theme }) => theme.colors.cardBackground};
 
   img {
-    height: 10rem;
-    width: 10rem;
+    height: 8.5rem;
+    width: 8.5rem;
 
     border: 2px solid ${({ theme }) => theme.colors.accent};
 
@@ -60,6 +61,8 @@ export const UserContainer = styled.div`
     padding: 0;
 
     gap: 1rem;
+
+    margin: 2rem 0;
 
     img {
       height: 8rem;
@@ -99,7 +102,7 @@ export const UserHeadingContainer = styled.div`
   flex-direction: column;
 
   strong {
-    font-size: 2.65rem;
+    font-size: 2.5rem;
     font-weight: ${({ theme }) => theme.fontWeight.light};
     line-height: 2rem;
     margin-bottom: 0.6rem;
@@ -131,7 +134,7 @@ export const ReposContainer = styled.div`
 
   & > strong {
     font-size: 1.5rem;
-    font-weight: ${({ theme }) => theme.fontWeight.regular};
+    font-weight: ${({ theme }) => theme.fontWeight.light};
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
@@ -150,7 +153,7 @@ export const ReposList = styled.ul`
 
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
 
   padding-bottom: 3rem;
   padding-right: 1rem;
@@ -159,15 +162,13 @@ export const ReposList = styled.ul`
 `;
 
 export const RepoItem = styled.li`
-  // considering container gap
-  flex-grow: 1;
-  flex-basis: calc((100% - (2 * 1.5rem)) / 3);
+  flex: 1 1 30%;
 
   @media (max-width: ${breakpoints.desktop}px) {
     flex: 1 1 40%;
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    width: 100%;
+    flex: 1 0 100%;
   }
 `;
