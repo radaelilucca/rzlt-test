@@ -17,7 +17,7 @@ const GlobalStyles = styled.createGlobalStyle`
       font-family: ${({ theme }) => theme.fontFamily.poppins};
 
       &:focus {
-        outline: 2px solid ${({ theme }) => theme.colors.focus};
+        outline: 2px solid ${({ theme }) => theme.colors.highlight};
       }
     }
   }

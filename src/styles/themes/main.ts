@@ -2,7 +2,7 @@ const mainTheme = {
   colors: {
     dark: '#04052E',
     accent: '#7000FF',
-    focus: '#00D1FF',
+    highlight: '#00D1FF',
     lightText: '#fff',
     cardBackground: 'rgba(0,0,0,0.5)',
     cardDarkerBackground: 'rgba(0,0,0,0.8)',
