@@ -140,6 +140,8 @@ export const SubmitButton = styled.button`
 
   color: inherit;
 
+  height: 5rem;
+
   margin-top: 3rem;
 
   width: 100%;
