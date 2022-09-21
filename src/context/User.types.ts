@@ -17,7 +17,7 @@ export type RepositoryType = {
   name: string;
   description: string;
   watchers_count: number;
-  forts_count: number;
+  forks_count: number;
   stargazers_count: number;
   html_url: string;
 };

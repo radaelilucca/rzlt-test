@@ -51,11 +51,11 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
     const repositories = repositoriesResponse.data as RepositoryType[];
 
     const parsedRepositories = repositories.map(
-      ({ id, name, description, forts_count, watchers_count, stargazers_count, html_url }) => ({
+      ({ id, name, description, forks_count, watchers_count, stargazers_count, html_url }) => ({
         id,
         name,
         description,
-        forts_count,
+        forks_count,
         watchers_count,
         stargazers_count,
         html_url,
