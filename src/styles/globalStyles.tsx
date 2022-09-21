@@ -1,6 +1,48 @@
 import * as styled from 'styled-components';
 
+import { lighten } from 'polished';
+
+const scrollbarStyles = styled.css`
+  ::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0.7rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.accent};
+    border-radius: ${({ theme }) => theme.rounded.lg};
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => lighten(0.1, theme.colors.accent)};
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: ${({ theme }) => lighten(0.1, theme.colors.accent)};
+  }
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.dark};
+    border-radius: ${({ theme }) => theme.rounded.lg};
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: ${({ theme }) => lighten(0.08, theme.colors.dark)};
+  }
+`;
+
 const GlobalStyles = styled.createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    ${scrollbarStyles}
+
+    font-family: ${({ theme }) => theme.fontFamily.poppins};
+
+    &:focus {
+      outline: 2px solid ${({ theme }) => theme.colors.highlight};
+    }
+  }
+
   #root {
     background-color: ${({ theme }) => theme.colors.dark};
     color: ${({ theme }) => theme.colors.lightText};
@@ -12,14 +54,6 @@ const GlobalStyles = styled.createGlobalStyle`
 
     height: 100vh;
     width: 100vw;
-
-    * {
-      font-family: ${({ theme }) => theme.fontFamily.poppins};
-
-      &:focus {
-        outline: 2px solid ${({ theme }) => theme.colors.highlight};
-      }
-    }
   }
 `;
 
