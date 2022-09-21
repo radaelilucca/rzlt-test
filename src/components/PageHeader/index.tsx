@@ -1,6 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-
-import { GoBackIcon } from '~/assets/svg';
+import { HomeIcon } from '~/assets/svg';
 
 import { Container, BackButton, Title } from './styles';
 
@@ -9,12 +7,10 @@ interface IPageHeaderProps {
 }
 
 const PageHeader = ({ title }: IPageHeaderProps) => {
-  const navigate = useNavigate();
-
   return (
     <Container>
-      <BackButton title='Go back' type='button' onClick={() => navigate('/')}>
-        <GoBackIcon />
+      <BackButton to='/' title='Back to home'>
+        <HomeIcon />
       </BackButton>
       <Title>{title}</Title>
     </Container>

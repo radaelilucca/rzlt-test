@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { breakpoints } from '~/styles';
@@ -9,10 +10,11 @@ export const Container = styled.header`
 
   width: 100%;
 
-  padding-top: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 `;
 
-export const BackButton = styled.button`
+export const BackButton = styled(Link)`
   position: absolute;
   left: 1.5rem;
 
@@ -23,8 +25,10 @@ export const BackButton = styled.button`
   cursor: pointer;
 
   svg {
-    height: 4rem;
-    width: 4rem;
+    height: 2.2rem;
+    width: 2.2rem;
+
+    opacity: 0.8;
 
     path {
       transition: fill 200ms ease;
@@ -34,6 +38,7 @@ export const BackButton = styled.button`
 
   &:hover {
     svg {
+      opacity: 1;
       path {
         fill: ${({ theme }) => theme.colors.highlight};
       }
@@ -50,5 +55,5 @@ export const BackButton = styled.button`
 
 export const Title = styled.h1`
   font-size: 2rem;
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.light};
 `;
