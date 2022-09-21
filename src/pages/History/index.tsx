@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { GoForwardIcon } from '~/assets/svg';
 
-import { PageHeader } from '~/components';
+import { NoDataPlaceholder, PageHeader } from '~/components';
 import { userContext } from '~/context';
 
 import { Container, HistoryItem, HistoryItemData, HistoryItemHeading, HistoryList } from './styles';
@@ -13,6 +13,8 @@ const SearchHistoryPage = () => {
   return (
     <Container>
       <PageHeader title='search history' />
+
+      {!searchHistory.length && <NoDataPlaceholder />}
 
       <HistoryList>
         {searchHistory.map((userItem) => (
