@@ -6,10 +6,10 @@ import { breakpoints } from './breakpoints';
 
 const scrollbarStyles = styled.css`
   ::-webkit-scrollbar {
-    width: 0.7rem;
+    width: 0.4rem;
   }
   ::-webkit-scrollbar-button {
-    width: 0.7rem;
+    width: 0.4rem;
   }
 
   ::-webkit-scrollbar-thumb {
