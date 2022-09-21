@@ -2,6 +2,8 @@ import * as styled from 'styled-components';
 
 import { lighten } from 'polished';
 
+import { breakpoints } from './breakpoints';
+
 const scrollbarStyles = styled.css`
   ::-webkit-scrollbar {
     width: 0.7rem;
@@ -40,6 +42,10 @@ const GlobalStyles = styled.createGlobalStyle`
 
     &:focus {
       outline: 2px solid ${({ theme }) => theme.colors.highlight};
+    }
+
+    @media (max-width: ${breakpoints.tablet}px) {
+      font-size: 90%;
     }
   }
 

@@ -113,7 +113,7 @@ export const UserHeadingContainer = styled.div`
   @media (max-width: ${breakpoints.tablet}px) {
     strong {
       font-size: 2rem;
-      line-height: 1.5rem;
+      line-height: 2rem;
     }
   }
 `;
@@ -168,6 +168,6 @@ export const RepoItem = styled.li`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    flex: 1 1 100%;
+    width: 100%;
   }
 `;

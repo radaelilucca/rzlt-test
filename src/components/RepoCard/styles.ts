@@ -57,7 +57,14 @@ export const Heading = styled.div`
 
   @media (max-width: ${breakpoints.tablet}px) {
     & > strong {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      max-width: 70%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    & > strong {
+      font-size: 1.2rem;
     }
   }
 `;
@@ -80,6 +87,12 @@ export const Stats = styled.div`
       path {
         fill: ${({ theme }) => theme.colors.lightText};
       }
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    span {
+      font-size: 1rem;
     }
   }
 `;
