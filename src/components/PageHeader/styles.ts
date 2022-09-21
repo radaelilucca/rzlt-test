@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { breakpoints } from '~/styles';
+
 export const Container = styled.header`
   display: flex;
   align-items: center;
@@ -35,6 +37,13 @@ export const BackButton = styled.button`
       path {
         fill: ${({ theme }) => theme.colors.highlight};
       }
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    svg {
+      height: 3rem;
+      width: 3rem;
     }
   }
 `;

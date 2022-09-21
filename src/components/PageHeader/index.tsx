@@ -13,7 +13,7 @@ const PageHeader = ({ title }: IPageHeaderProps) => {
 
   return (
     <Container>
-      <BackButton title='Go back' type='button' onClick={() => navigate(-1)}>
+      <BackButton title='Go back' type='button' onClick={() => navigate('/')}>
         <GoBackIcon />
       </BackButton>
       <Title>{title}</Title>
