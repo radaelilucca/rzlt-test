@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { LoadingIcon } from '~/assets/svg';
 
@@ -46,6 +47,10 @@ const HomePage = () => {
         <SubmitButton type='submit' disabled={!username || isLoading}>
           {isLoading ? <LoadingIcon /> : 'search'}
         </SubmitButton>
+
+        <Link to='/history' className='go-to-history-btn'>
+          Search history
+        </Link>
       </SearchForm>
     </Container>
   );

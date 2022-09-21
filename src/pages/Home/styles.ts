@@ -21,12 +21,36 @@ export const SearchForm = styled.form`
 
   max-width: 45rem;
 
+  display: flex;
+  flex-direction: column;
+
+  .go-to-history-btn {
+    text-decoration: none;
+
+    margin: auto;
+    margin-top: 2rem;
+
+    font-size: 1.5rem;
+
+    color: ${({ theme }) => theme.colors.lightText};
+    font-weight: ${({ theme }) => theme.fontWeight.xLight};
+
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.highlight};
+    }
+  }
+
   @media (max-width: ${breakpoints.mobile}px) {
     background: transparent;
 
-    padding: 4rem 2rem;
+    padding: 4rem 0;
 
     height: 100%;
+
+    .go-to-history-btn {
+      font-size: 1.25rem;
+    }
   }
 `;
 
@@ -161,6 +185,6 @@ export const SubmitButton = styled.button`
     font-size: 1.25rem;
 
     padding: 0;
-    min-height: 3.125rem;
+    height: 3.5rem;
   }
 `;
