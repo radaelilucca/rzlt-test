@@ -7,7 +7,8 @@ export type UserType = {
   username: string;
   name: string;
   repos_url: string;
-  public_repos: number;
+  public_repos_count: number;
+  public_repos?: number;
   searchTimestamp: number;
 };
 
@@ -35,8 +36,8 @@ export type UserContextValueType = {
   repositories: RepositoryType[] | undefined;
   isLoading: boolean;
   fetchUser: (args: IFetchUserProps) => Promise<void>;
+  clearError: () => void;
   lastSearch: string;
   searchHistory: UserType[];
   error: Error | null;
-  clearError: () => void;
 };

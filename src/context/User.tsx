@@ -46,41 +46,50 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
     });
   }, [user]);
 
+  const fetchUserRepos = async (username: string) => {
+    const repositoriesResponse = await githubApi.get(`/users/${username}/repos`);
+    const repositories = repositoriesResponse.data as RepositoryType[];
+
+    const parsedRepositories = repositories.map(
+      ({ id, name, description, forts_count, watchers_count, stargazers_count, html_url }) => ({
+        id,
+        name,
+        description,
+        forts_count,
+        watchers_count,
+        stargazers_count,
+        html_url,
+      }),
+    );
+
+    setRepositories(parsedRepositories);
+  };
+
+  const fetchUserData = async (username: string) => {
+    const response = await githubApi.get(`/users/${username}`);
+    const { avatar_url, bio, location, name, repos_url, public_repos } = response.data as UserType;
+
+    const parsedUser: UserType = {
+      avatar_url,
+      bio,
+      location,
+      name,
+      repos_url,
+      public_repos_count: public_repos || 0,
+      username,
+      searchTimestamp: Date.now(),
+    };
+
+    setUser(parsedUser);
+  };
+
   const fetchUser = async ({ username, navigateToProfile }: IFetchUserProps) => {
     try {
       setLoading(true);
-      const response = await githubApi.get(`/users/${username}`);
-      const { avatar_url, bio, location, name, repos_url, public_repos } =
-        response.data as UserType;
 
-      const parsedUser: UserType = {
-        avatar_url,
-        bio,
-        location,
-        name,
-        repos_url,
-        public_repos,
-        username,
-        searchTimestamp: Date.now(),
-      };
+      await fetchUserData(username);
+      await fetchUserRepos(username);
 
-      const repositoriesResponse = await githubApi.get(`/users/${username}/repos`);
-      const repositories = repositoriesResponse.data as RepositoryType[];
-
-      const parsedRepositories = repositories.map(
-        ({ id, name, description, forts_count, watchers_count, stargazers_count, html_url }) => ({
-          id,
-          name,
-          description,
-          forts_count,
-          watchers_count,
-          stargazers_count,
-          html_url,
-        }),
-      );
-
-      setUser(parsedUser);
-      setRepositories(parsedRepositories);
       setLastSearch(username);
 
       clearError();
