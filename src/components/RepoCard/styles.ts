@@ -19,7 +19,7 @@ export const Container = styled.a`
 
   padding: 1rem;
   border-radius: ${({ theme }) => theme.rounded.md};
-  border: 2px solid ${({ theme }) => theme.colors.accent};
+  border: 1px solid ${({ theme }) => theme.colors.accent};
 
   cursor: pointer;
 
@@ -77,12 +77,13 @@ export const Stats = styled.div`
   span {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     color: ${({ theme }) => theme.colors.lightText};
+    font-size: 0.9rem;
 
     svg {
-      height: 1.5rem;
-      width: 1.5rem;
+      height: 1.4rem;
+      width: 1.4rem;
 
       path {
         fill: ${({ theme }) => theme.colors.lightText};
