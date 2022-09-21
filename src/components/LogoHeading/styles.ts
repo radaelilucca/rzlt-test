@@ -5,12 +5,20 @@ import { breakpoints } from '~/styles';
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  gap: 1.5rem;
+  width: fit-content;
+
+  gap: 1rem;
 
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  }
+
+  svg {
+    max-width: 4.5rem;
+    max-height: 4.5rem;
   }
 
   @media (max-width: ${breakpoints.mobile}px) {
@@ -21,8 +29,8 @@ export const Container = styled.div`
     }
 
     svg {
-      max-width: 3.5rem;
-      max-height: 3.5rem;
+      max-width: 2.5rem;
+      max-height: 2.5rem;
     }
   }
 `;

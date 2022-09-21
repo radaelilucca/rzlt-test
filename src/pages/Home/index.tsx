@@ -1,12 +1,18 @@
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { LoadingIcon } from '~/assets/svg';
 
 import { LogoHeading } from '~/components/LogoHeading';
 import { userContext } from '~/context';
 
-import { Container, Heading, InputGroup, SearchForm, SubmitButton } from './styles';
+import {
+  Container,
+  Heading,
+  InputGroup,
+  SearchForm,
+  SubmitButton,
+  GoToHistoryButton,
+} from './styles';
 
 const HomePage = () => {
   const { fetchUser, lastSearch, error, clearError, isLoading } = useContext(userContext);
@@ -29,7 +35,7 @@ const HomePage = () => {
       <SearchForm onSubmit={handleSubmit}>
         <Heading>
           <LogoHeading />
-          <h2>Search for an user to see it’s profile and repositories!</h2>
+          <h2>Search for a user to see it&apos;s profile and repositories!</h2>
         </Heading>
 
         <InputGroup hasError={!!error}>
@@ -47,10 +53,7 @@ const HomePage = () => {
         <SubmitButton type='submit' disabled={!username || isLoading}>
           {isLoading ? <LoadingIcon /> : 'search'}
         </SubmitButton>
-
-        <Link to='/history' className='go-to-history-btn'>
-          Search history
-        </Link>
+        <GoToHistoryButton to='/history'> Search history</GoToHistoryButton>
       </SearchForm>
     </Container>
   );

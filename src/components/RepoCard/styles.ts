@@ -9,7 +9,7 @@ export const Container = styled.a`
 
   position: relative;
 
-  height: 8.125rem;
+  height: 9rem;
 
   background-color: ${({ theme }) => theme.colors.cardBackground};
 

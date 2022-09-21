@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { darken } from 'polished';
 
-import { breakpoints } from '~/styles';
-import { shakeAnimation } from '~/styles/animations';
+import { breakpoints, shakeAnimation } from '~/styles';
 
 export const Container = styled.div`
   height: 100%;
@@ -24,33 +24,12 @@ export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
 
-  .go-to-history-btn {
-    text-decoration: none;
-
-    margin: auto;
-    margin-top: 2rem;
-
-    font-size: 1.5rem;
-
-    color: ${({ theme }) => theme.colors.lightText};
-    font-weight: ${({ theme }) => theme.fontWeight.xLight};
-
-    &:hover,
-    &:focus {
-      color: ${({ theme }) => theme.colors.highlight};
-    }
-  }
-
   @media (max-width: ${breakpoints.mobile}px) {
     background: transparent;
 
     padding: 4rem 0;
 
     height: 100%;
-
-    .go-to-history-btn {
-      font-size: 1.25rem;
-    }
   }
 `;
 
@@ -58,13 +37,13 @@ export const Heading = styled.header`
   display: flex;
   flex-direction: column;
 
-  gap: 0.5rem;
+  align-items: center;
+
+  gap: 1rem;
 
   h2 {
     font-weight: ${({ theme }) => theme.fontWeight.xLight};
-    font-size: 2rem;
-
-    text-align: center;
+    font-size: 1.5rem;
   }
 
   @media (max-width: ${breakpoints.mobile}px) {
@@ -85,38 +64,38 @@ interface InputGroupProps {
 export const InputGroup = styled.div<InputGroupProps>`
   position: relative;
 
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  font-size: 1.5rem;
 
   color: ${({ theme }) => theme.colors.lightText};
 
   label {
     color: inherit;
-    font-weight: ${({ theme }) => theme.fontWeight.light};
+
+    font-size: 1.3rem;
+    font-weight: ${({ theme }) => theme.fontWeight.xLight};
   }
 
   input {
-    font-size: 1.5rem;
-    font-weight: ${({ theme }) => theme.fontWeight.light};
-
+    min-height: 4rem;
     padding: 0 1rem;
+
+    background-color: ${({ theme }) => theme.colors.cardBackground};
 
     border: 2px solid
       ${({ theme, hasError }) => (hasError ? theme.colors.errorRed : theme.colors.accent)};
 
-    color: ${({ theme, hasError }) => (hasError ? theme.colors.errorRed : theme.colors.lightText)};
-
     border-radius: ${({ theme }) => theme.rounded.lg};
 
-    min-height: 5rem;
+    font-size: 1.3rem;
+    font-weight: ${({ theme }) => theme.fontWeight.light};
 
-    background-color: ${({ theme }) => theme.colors.cardBackground};
+    color: ${({ theme, hasError }) => (hasError ? theme.colors.errorRed : theme.colors.lightText)};
 
     ${({ hasError }) => hasError && shakeAnimation};
   }
@@ -147,6 +126,7 @@ export const InputGroup = styled.div<InputGroupProps>`
     }
   }
 `;
+
 export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
@@ -155,22 +135,22 @@ export const SubmitButton = styled.button`
   background-color: ${({ theme }) => theme.colors.accent};
 
   cursor: pointer;
-  transition: background-color 200ms ease;
 
-  font-size: 2rem;
-  font-weight: ${({ theme }) => theme.fontWeight.light};
+  color: inherit;
+  font-size: 1.8rem;
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 
   padding: 1rem;
 
-  color: inherit;
+  height: 4rem;
 
-  height: 5rem;
-
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 
   width: 100%;
 
   border-radius: ${({ theme }) => theme.rounded.lg};
+
+  transition: background-color 200ms ease;
 
   &:hover {
     background-color: ${({ theme }) => darken(0.1, theme.colors.accent)};
@@ -182,9 +162,30 @@ export const SubmitButton = styled.button`
   }
 
   @media (max-width: ${breakpoints.mobile}px) {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 
     padding: 0;
     height: 3.5rem;
+  }
+`;
+
+export const GoToHistoryButton = styled(Link)`
+  text-decoration: none;
+
+  margin: auto;
+  margin-top: 1rem;
+
+  font-size: 1.5rem;
+
+  color: ${({ theme }) => theme.colors.lightText};
+  font-weight: ${({ theme }) => theme.fontWeight.xLight};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.highlight};
+  }
+
+  @media (max-width: ${breakpoints.mobile}px) {
+    font-size: 1.25rem;
   }
 `;
