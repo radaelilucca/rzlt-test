@@ -52,7 +52,13 @@ const UserContextProvider = ({ children }: IUserContextProviderProps) => {
   }, [user]);
 
   const fetchUserRepos = async (username: string) => {
-    const repositoriesResponse = await githubApi.get(`/users/${username}/repos`);
+    //TODO: IMPLEMENT PAGINATION
+    const repositoriesResponse = await githubApi.get(`/users/${username}/repos`, {
+      params: {
+        sort: 'created',
+        direction: 'desc',
+      },
+    });
     const repositories = repositoriesResponse.data as RepositoryType[];
 
     const parsedRepositories = repositories.map(
