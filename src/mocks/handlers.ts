@@ -8,6 +8,8 @@ export const handlers = [
     const userMockData = mockedUsersWithRepos[username];
 
     if (userMockData) return res(ctx.json(userMockData));
+
+    return req.passthrough();
   }),
 
   rest.get(`https://api.github.com/users/:username/repos`, (req, res, ctx) => {
@@ -15,5 +17,7 @@ export const handlers = [
     const userMockData = mockedUsersWithRepos[username];
 
     if (userMockData) return res(ctx.json(userMockData.repos));
+
+    return req.passthrough();
   }),
 ];
