@@ -14,6 +14,12 @@ import {
   GoToHistoryButton,
 } from './styles';
 
+export const HOME_PAGE_TEST_IDS = {
+  usernameInput: 'username-input',
+  errorLabel: 'error-label',
+  submitButton: 'submit-button',
+};
+
 const HomePage = () => {
   const { fetchUser, lastSearch, error, clearError, isLoading } = useContext(userContext);
 
@@ -42,15 +48,20 @@ const HomePage = () => {
           <label htmlFor='username-input'>username</label>
           <input
             id='username-input'
+            data-testid={HOME_PAGE_TEST_IDS.usernameInput}
             type='text'
             placeholder='github username'
             value={username}
             onChange={handleInputChange}
           />
-          {!!error && <span>User not found</span>}
+          {!!error && <span data-testid={HOME_PAGE_TEST_IDS.errorLabel}>User not found</span>}
         </InputGroup>
 
-        <SubmitButton type='submit' disabled={!username || isLoading}>
+        <SubmitButton
+          data-testid={HOME_PAGE_TEST_IDS.submitButton}
+          type='submit'
+          disabled={!username || isLoading}
+        >
           {isLoading ? <LoadingIcon /> : 'search'}
         </SubmitButton>
         <GoToHistoryButton to='/history'> Search history</GoToHistoryButton>
