@@ -6,7 +6,8 @@ interface INoDataPlaceholderProps {
   message?: string;
 }
 
-const NoDataPlaceholder = ({ message = 'There is nothing here...' }: INoDataPlaceholderProps) => {
+export const DEFAULT_NO_DATA_MESSAGE = 'There is nothing here...';
+const NoDataPlaceholder = ({ message = DEFAULT_NO_DATA_MESSAGE }: INoDataPlaceholderProps) => {
   return (
     <Container>
       <SadEmoji />
