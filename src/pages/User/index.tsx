@@ -57,7 +57,7 @@ const UserDetailsPage = () => {
 
       <ReposContainer>
         <strong>
-          <span>public repositories:</span> <span>{repositories?.length}</span>
+          <span>public repositories:</span> <span>{user?.public_repos_count}</span>
         </strong>
 
         {!repositories?.length && <NoDataPlaceholder />}
