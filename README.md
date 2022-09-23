@@ -1,8 +1,6 @@
 <div align="center">
 
-# Github finder
-
-![Guess the champ logo image](/assets/images/readme-logo.png)
+![GH finder logo image](/assets/images/readme-logo.png)
 
 ### RZLT Technical case task
 
