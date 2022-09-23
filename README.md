@@ -7,7 +7,8 @@
 ### RZLT Technical case task
 
 [📀 The project](#-the-project) &emsp;|&emsp;
-[🧰 Tech stack](#-tech-stack)
+[🧰 Tech stack](#-tech-stack) &emsp;|&emsp;
+[📝 Testing](#-testing)
 
 </div>
 
@@ -39,6 +40,22 @@ You can try the live version here: [gitfinder.radaeli.dev](https://gitfinder.rad
   <img width="64" height="64" src="/assets/icons/styled.png" alt="Styled Components logo"/>
 </a>
 
+<a href="https://jestjs.io/">
+  <img width="64" height="64" src="/assets/icons/jest.png" alt="Jest logo"/>
+</a>
+
+<a href="https://testing-library.com/docs/react-testing-library/intro">
+  <img width="64" height="64" src="/assets/icons/testing-library.png" alt="Testing library logo"/>
+</a>
+
+<a href="https://mswjs.io/">
+  <img width="64" height="64" src="/assets/icons/msw.png" alt="Mock Service Worker logo"/>
+</a>
+
 <br>
 
-This project was created with [Vite](https://vitejs.dev/), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/) and [Styled-Components](https://styled-components.com/).</p>
+This project was created with [Vite](https://vitejs.dev/), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/) and [Styled-Components](https://styled-components.com/).</p> For tests i'm using [Jest](https://jestjs.io/), [Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [Mock Service Worker](https://mswjs.io/).
+
+## 📝 Testing
+
+Github api has a pretty low rate limit `(60 without authorization)` and as a solution for this problem I have implemented the [MSW](./src/mocks/handlers.ts) that can intercept http requests and return mocked data. There are 3 mocked users: `radaelilucca`, `github` and `facebook`. Search for this users will return the mocked data that you can find at `src/mocks/data/users.ts`. Any other search will hit the Github Api and return real data, decreasing the `x-ratelimit-remaining`. Also MSW helps a lot with tests using Jest.
